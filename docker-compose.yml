@@ -1,0 +1,25 @@
+name: airothon
+
+
+services:
+    solona:
+        image: solanalabs/solana:v1.7.11
+        tty: true
+        stdin_open: true
+        networks:
+            - airothon
+        volumes:
+            - ./ubuntu:/root
+        command: /bin/bash
+
+networks:
+    airothon:
+        driver: bridge
+
+volumes:
+    volume-mysql:
+        driver: local
+    volume-mongo:
+        driver: local
+    volume-redis:
+        driver: local
